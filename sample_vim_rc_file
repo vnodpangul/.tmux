@@ -1,0 +1,54 @@
+VIMRC
+
+set nocompatible
+set ai
+set si
+set wrap
+filetype on
+filetype plugin on
+set ts=4
+set sw=4
+set mouse=v
+set clipboard=exclude:.*
+set autoindent
+set tabstop=4
+set expandtab
+set number
+set showmatch
+set incsearch
+set hlsearch
+set showcmd
+set laststatus=2
+set cmdheight=2
+set report=0
+syntax on
+set backspace=indent,eol,start
+set ruler
+set guioptions+=F
+set complete=.,w,b,u
+match Todo /\s\+$/
+set tags=./tags,tags,/vob/ios/sys/tags,/vob/ios/sys/TAGS
+map <S-Insert> <MiddleMouse>
+map! <S-Insert> <MiddleMouse>
+set dictionary+=/usr/share/lib/dict/words
+set path+=/vob/ios
+ " Taglist plugin mappings
+if $OSTYPE == "linux"
+let Tlist_Ctags_Cmd='/users/yega/tools/ctags/linux/bin/ctags'
+else
+let Tlist_Ctags_Cmd='/usr/cisco/bin/ctags'
+endif
+"This is for highlighting the over characters in aline
+"highlight OverLength ctermbg=darkred ctermfg=white guibg=#592929
+"match OverLength /\%81v.\+/
+" source /users/chareng/cscope_maps.vim
+
+" Next two lines will set the vertical 80 charc column in file
+"let &colorcolumn=join(range(81,999),",")
+"let &colorcolumn="80,".join(range(400,999),",")
+"
+au BufReadPost *.conf set syntax=ini
+map <C-j> <C-W>j
+map <C-k> <C-W>k
+map <C-h> <C-W>h
+map <C-l> <C-W>l
